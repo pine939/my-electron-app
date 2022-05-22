@@ -1,0 +1,44 @@
+{
+  "name": "my-electron-app",
+  "version": "1.0.0",
+  "author": "dasolkang",
+  "description": "My Electron app",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "deploy": "electron-builder --windows nsis:ia32"
+  },
+  "build": {
+    "productName": "test",
+    "appId": "com.electron.hello",
+    "asar": true,
+    "protocols": {
+      "name": "test",
+      "schemes": [
+        "test"
+      ]
+    },
+    "win": {
+      "target": [
+        "zip",
+        "nsis"
+      ],
+      "icon": "./resources/installer/Icon.ico"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true
+    },
+    "directories": {
+      "buildResources": "./resources/installer/",
+      "output": "./exeResult/",
+      "app": "."
+    }
+  },
+  "devDependencies": {
+    "electron": "^18.2.4",
+    "electron-builder": "^23.0.3"
+  },
+  "keywords": [],
+  "license": "ISC"
+}
